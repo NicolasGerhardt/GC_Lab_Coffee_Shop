@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<h1>Register for Account</h1>
+
+<form class="registration" action="~/UserProfile/Summary" method="post">
+    <div class="registration-container">
+            First Name  <input type="text" id="fname" name="fname" maxlength="20" />
+            <br />
+            Last Name <input type="text" id="lname" name="lname" maxlength="20" />
+            <br />
+            Email <input type="email" id="email" name="email" maxlength="20" />
+            <br />
+            Password <input type="password" id="password" name="password" maxlength="20" />
+            <br />
+    </div>
+    <br />
+    <input class="submit" type="submit" value="Register" />
+</form>
