@@ -1,5 +1,4 @@
 # Grand Circus Lab Coffee Shop Registration
----
 ## Part 1
 ### Task
 Create a User Registration Form using the MVC framework.
