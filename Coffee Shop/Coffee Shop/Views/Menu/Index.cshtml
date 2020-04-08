@@ -16,12 +16,11 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <strong>@item.Name</strong>
+                <strong>
+                    @Html.ActionLink(@item.Name, "Details", new { id = item.ID })
+                </strong>
                 <p>@item.Description</p>
                 <div>@item.Price.ToString("C")</div>
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID })
             </td>
         </tr>
 }
