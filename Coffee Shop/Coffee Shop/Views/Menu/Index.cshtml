@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Coffee_Shop.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Menu</h1>
+
+@if (ViewData["Bad-ID-Passed"] != null)
+{
+    <span class="text-danger">No Product matching that ID</span>
+}
+
+<table class="table">
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <strong>@item.Name</strong>
+                <p>@item.Description</p>
+                <div>@item.Price.ToString("C")</div>
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
