@@ -4,10 +4,31 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Beans-A-plenty</h1>
-    <p>
-        Join our club by <a asp-area="" asp-controller="UserProfile" asp-action="Creation">registering here</a>!
-    </p>
-    <p>
-        See what is on the <a asp-area="" asp-controller="Menu" asp-action="Index">Menu</a>
-    </p>
+</div>
+<br />
+<br />
+<br />
+<div class="justify-content-center card-group">
+    <div class="row justify-content-center text-center">
+        <div class="col-sm-6">
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Check out our Menu!</h5>
+                    <p class="card-text">We have lots of taste drinks and food to choose from</p>
+                    <a asp-area="" asp-controller="Menu" asp-action="Index" class="btn btn-primary">Menu</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Become a Bean Head!</h5>
+                    <p class="card-text">Join our club, earn points, get discounts and win free drinks and swag.</p>
+                    <a asp-area="" asp-controller="UserProfile" asp-action="Creation" class="btn btn-primary">Join Now</a>
+                    <a asp-area="" asp-controller="UserProfile" asp-action="Login" class="btn btn-primary">Log in</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Coffee_Shop.Models;
-using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -13,34 +12,29 @@ namespace Coffee_Shop.Controllers
     public class MenuController : Controller
     {
         IConfiguration ConfigRoot;
-        SqlConnection connection;
+        DAL dal;
 
         public MenuController(IConfiguration config)
         {
             ConfigRoot = config;
-            connection = new SqlConnection(ConfigRoot.GetConnectionString("CoffeeShop"));
+            dal = new DAL(ConfigRoot.GetConnectionString("CoffeeShop"));
         }
 
         public IActionResult Index()
         {
-            string queryString = "select * from Products";
-            var Products = connection.Query<Product>(queryString);
+            var Products = dal.GetProductsAll();
             return View(Products);
         }
 
         public IActionResult Details(int id)
         {
-            string queryString = "select * from Products where ID = @ID";
-            var product = connection.QueryFirstOrDefault<Product>(queryString, new { ID = id } );
+            
+            var product = dal.GetProductByID(id);
 
             if (product == null)
             {
-                ViewData["Bad-ID-Passed"] = true;
-
-                queryString = "select * from Products";
-                var Products = connection.Query<Product>(queryString);
-
-                return View("Index", Products);
+                TempData["Bad-Product-ID-Passed"] = "No Menu Item found with that ID. Make selection from items on Menu";
+                return RedirectToAction("Index");
             }
             return View(product);
         }

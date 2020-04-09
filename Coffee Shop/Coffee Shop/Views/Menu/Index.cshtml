@@ -6,9 +6,9 @@
 
 <h1>Menu</h1>
 
-@if (ViewData["Bad-ID-Passed"] != null)
+@if (!string.IsNullOrEmpty((string) TempData["Bad-Product-ID-Passed"]))
 {
-    <span class="text-danger">No Product matching that ID</span>
+<span class="text-danger">@TempData["Bad-Product-ID-Passed"]</span>
 }
 
 <table class="table">
